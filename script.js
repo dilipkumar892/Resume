@@ -160,6 +160,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         animate();
 
+        // Pause animation when tab is not visible (improves battery life)
+        let animFrameId = 0;
+        function handleVisibilityChange() {
+            if (document.hidden) {
+                cancelAnimationFrame(animFrameId);
+            } else {
+                animate();
+            }
+        }
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+
         // Track mouse for particle interaction
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
