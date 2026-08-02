@@ -197,10 +197,6 @@ body {
 body::before,
 body::after {
     content: '';
-}
-
-body::before,
-body::after {
     position: fixed;
     inset: auto;
     width: 360px;
@@ -1231,22 +1227,6 @@ img {
     color: var(--text);
 }
 
-.skill-bar {
-    width: 100%;
-    height: 8px;
-    background: var(--skill-bar-bg);
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.skill-progress {
-    height: 100%;
-    background: var(--gradient);
-    border-radius: 4px;
-    width: 0;
-    transition: width 1.5s ease;
-}
-
 /* ===== Certifications Section ===== */
 .cert-grid {
     display: grid;
@@ -1349,18 +1329,6 @@ img {
 
 .edu-institution {
     margin-bottom: 4px;
-}
-
-.edu-list {
-    text-align: left;
-    padding-left: 20px;
-    list-style: disc;
-}
-
-.edu-list li {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    margin-bottom: 8px;
 }
 
 /* ===== Portfolio Section ===== */
@@ -1736,35 +1704,6 @@ footer p {
     background: rgba(37,99,235,0.08);
 }
 
-/* ===== Skeleton Loading ===== */
-.skeleton {
-    background: linear-gradient(90deg, var(--skill-bar-bg) 25%, var(--border) 50%, var(--skill-bar-bg) 75%);
-    background-size: 200% 100%;
-    animation: skeleton-loading 1.5s ease-in-out infinite;
-    border-radius: 4px;
-}
-
-@keyframes skeleton-loading {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-}
-
-.skeleton-card {
-    height: 180px;
-    border-radius: var(--radius);
-    margin-bottom: 20px;
-}
-
-.skeleton-text {
-    height: 14px;
-    margin-bottom: 10px;
-    width: 80%;
-}
-
-.skeleton-text.short {
-    width: 50%;
-}
-
 /* ===== Theme Transition ===== */
 html {
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -1934,14 +1873,6 @@ html {
     initial-value: 0%;
 }
 
-.skills-rings {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 28px;
-    margin-bottom: 40px;
-}
-
 .skill-ring {
     --progress: 0%;
     width: 130px;
@@ -2018,59 +1949,6 @@ html {
     visibility: visible;
 }
 
-.help-modal-content {
-    background: var(--card-bg);
-    color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    width: min(100%, 560px);
-    padding: 28px;
-    position: relative;
-    box-shadow: var(--shadow-lg);
-    max-height: 85vh;
-    overflow-y: auto;
-}
-
-.help-modal-close {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    border: none;
-    background: transparent;
-    font-size: 1.4rem;
-    cursor: pointer;
-    color: var(--text-light);
-    transition: var(--transition);
-}
-
-.help-modal-close:hover {
-    color: var(--primary);
-}
-
-.help-modal-content h3 {
-    margin-bottom: 16px;
-    font-size: 1.3rem;
-    color: var(--primary);
-}
-
-.help-shortcuts {
-    list-style: none;
-}
-
-.help-shortcuts li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.95rem;
-}
-
-.help-shortcuts li:last-child {
-    border-bottom: none;
-}
-
-.help-shortcuts kbd,
 .help-list kbd {
     background: var(--bg-alt);
     border: 1px solid var(--border);
@@ -2134,17 +2012,6 @@ html {
     border-radius: 0 2px 2px 0;
 }
 
-/* ===== 3D Tilt Cards ===== */
-.tilt-card {
-    transform-style: preserve-3d;
-    perspective: 1000px;
-    transition: transform 0.1s ease;
-}
-
-.tilt-card-inner {
-    transition: transform 0.3s ease;
-}
-
 /* Will-change only applied on hover (creating layers globally causes lag) */
 .skill-category:hover,
 .cert-card:hover,
@@ -2152,32 +2019,6 @@ html {
 .portfolio-card:hover,
 .stat:hover {
     will-change: transform;
-}
-
-/* ===== Shimmer Effect ===== */
-.shimmer {
-    position: relative;
-    overflow: hidden;
-}
-
-.shimmer::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,0.06),
-        transparent
-    );
-    background-size: 200% 100%;
-    animation: shimmerMove 3s ease-in-out infinite;
-    pointer-events: none;
-}
-
-@keyframes shimmerMove {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
 }
 
 /* ===== Glow Pulse on Hero Orbs ===== */
@@ -2208,11 +2049,6 @@ html {
 .js .timeline-item.visible {
     opacity: 1;
     transform: translateX(0);
-}
-
-/* ===== Skill Bar Bounce Fill ===== */
-.skill-progress {
-    transition: width 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* ===== Floating Decorative Particles ===== */
@@ -2291,11 +2127,6 @@ html {
 .nav-links a.active::after {
     width: 60%;
     left: 20%;
-}
-
-/* ===== Counter Number Animation ===== */
-.counter-number {
-    display: inline-block;
 }
 
 /* ===== Enhanced Hero Avatar Rotation ===== */

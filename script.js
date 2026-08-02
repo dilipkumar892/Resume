@@ -536,24 +536,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Skill bars
-    const skillBars = document.querySelectorAll('.skill-progress');
-    let skillAnimated = false;
-    function animateSkillBars() {
-        if (skillAnimated) return;
-        const triggerPoint = window.innerHeight * 0.85;
-        const skillsSection = document.getElementById('skills');
-        if (skillsSection) {
-            const sectionTop = skillsSection.getBoundingClientRect().top;
-            if (sectionTop < triggerPoint) {
-                skillBars.forEach(bar => {
-                    bar.style.width = (bar.getAttribute('data-progress') || 0) + '%';
-                });
-                skillAnimated = true;
-            }
-        }
-    }
-
     // Certification progress bars (feature F3)
     const certFills = document.querySelectorAll('.cert-progress-fill');
     let certsAnimated = false;
@@ -647,7 +629,6 @@ document.addEventListener('DOMContentLoaded', function() {
             updateBackToTop();
             updateActiveNavLink();
             animateSkillRings();
-            animateSkillBars();
             animateCertBars();
             animateCounters();
             updateScrollProgress();
@@ -664,7 +645,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updateBackToTop();
         updateActiveNavLink();
         animateSkillRings();
-        animateSkillBars();
         animateCertBars();
         animateCounters();
         updateScrollProgress();
@@ -850,6 +830,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isOpen) {
             closeModal(helpModal, false);
         } else {
+            // Remember what had focus so it can be restored after closing (a11y fix for the ? shortcut)
+            if (document.activeElement && document.activeElement !== document.body) {
+                lastFocusedButton = document.activeElement;
+            }
             openModal(helpModal);
         }
     }
